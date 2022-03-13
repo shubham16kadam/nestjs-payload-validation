@@ -64,10 +64,7 @@ export class EmployeeDetails {
 
   @IsNotEmpty()
   @IsInt()
-  @Validate(CustomAgeLimitValidator, {
-    message:
-      'Age limit violated! Employee age should be between 18 and 65 years',
-  })
+  @Validate(CustomAgeLimitValidator)
   age: number;
 
   @ValidateNested()
