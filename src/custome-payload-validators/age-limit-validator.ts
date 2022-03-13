@@ -15,6 +15,6 @@ export class CustomAgeLimitValidator implements ValidatorConstraintInterface {
   // optional method
   defaultMessage(args: ValidationArguments) {
     // Provide default error message if validation failed
-    return `Age value ${args.value} caused age limit violated! Employee age should be between 18 and 65 years`;
+    return `Age value ${args.value} caused age limit violation! Employee age should be between 18 and 65 years`;
   }
 }
