@@ -7,11 +7,11 @@ import {
   Matches,
   MaxLength,
   ValidateNested,
-  Min,
-  Max,
   IsNumber,
+  Validate,
 } from 'class-validator';
 import { Type } from 'class-transformer';
+import { CustomAgeLimitValidator } from '../custome-payload-validators/age-limit-validator';
 
 export class Address {
   @IsString()
@@ -64,8 +64,10 @@ export class EmployeeDetails {
 
   @IsNotEmpty()
   @IsInt()
-  @Min(18)
-  @Max(65)
+  @Validate(CustomAgeLimitValidator, {
+    message:
+      'Age limit violated! Employee age should be between 18 and 65 years',
+  })
   age: number;
 
   @ValidateNested()
